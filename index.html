@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Lab 1 — My Portfolio</title>
+    <meta name="description"
+        content="Trang Portfolio cá nhân triển khai tự động với GitHub Actions CI/CD Pipeline - DevOps Lab 1.">
+    <title>Trang chủ — DevOps Lab 1 Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -20,26 +22,62 @@
             justify-content: center;
             align-items: center;
             color: #333;
+            padding: 20px;
         }
 
         .container {
             background: white;
             border-radius: 16px;
-            padding: 48px;
+            padding: 36px 48px;
             max-width: 600px;
+            width: 100%;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
 
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f0f2f5;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #5a67d8;
+            color: white;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #667eea;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
         h1 {
-            color: #667eea;
+            color: #4c51bf;
             margin-bottom: 8px;
-            font-size: 32px;
+            font-size: 30px;
         }
 
         h2 {
-            color: #764ba2;
-            margin-bottom: 24px;
+            color: #6b46c1;
+            margin-bottom: 20px;
             font-size: 18px;
             font-weight: normal;
         }
@@ -58,7 +96,7 @@
 
         .badge {
             display: inline-block;
-            background: #667eea;
+            background: #4c51bf;
             color: white;
             padding: 6px 14px;
             border-radius: 20px;
@@ -69,26 +107,35 @@
         .footer {
             margin-top: 24px;
             font-size: 13px;
-            color: #999;
+            color: #555;
         }
 
         .status {
-            color: #38a169;
+            color: #2f855a;
             font-weight: bold;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1> Xin chào, DevOps!</h1>
-        <h2>Lab 1 — Website đã được cập nhật tự động! </h2>
+    <main class="container">
+        <nav aria-label="Main Navigation">
+            <a href="index.html" class="active">Trang chủ</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+
+        <img src="avatar.png" alt="Ảnh đại diện Dương Trung Sơn" class="avatar" width="110" height="110">
+
+        <h1>Xin chào, DevOps!</h1>
+        <h2>Lab 1 — Website Multi-page & Lighthouse CI</h2>
 
         <div class="info">
-            <p> <strong>Bài học:</strong> DevOps Lab 1 — Tổng quan</p>
-            <p> <strong>Deploy bởi:</strong> GitHub Actions CI/CD</p>
-            <p> <strong>Ngày deploy:</strong> <span id="date"></span></p>
-            <p> <strong>Pipeline status:</strong> <span class="status"> Automated</span></p>
+            <p><strong>Sinh viên:</strong> Dương Trung Sơn</p>
+            <p><strong>Bài học:</strong> DevOps Lab 1 — Tổng quan & Mở rộng</p>
+            <p><strong>Deploy bởi:</strong> GitHub Actions CI/CD + Lighthouse CI</p>
+            <p><strong>Ngày deploy:</strong> <span id="date"></span></p>
+            <p><strong>Pipeline status:</strong> <span class="status">Automated & Audited</span></p>
         </div>
 
         <div>
@@ -96,15 +143,15 @@
             <span class="badge">CSS3</span>
             <span class="badge">Git</span>
             <span class="badge">GitHub Actions</span>
-            <span class="badge">CI/CD</span>
+            <span class="badge">Lighthouse CI</span>
             <span class="badge">DevOps</span>
         </div>
 
-        <div class="footer">
+        <footer class="footer">
             <p>Deployed automatically via GitHub Actions Pipeline</p>
-            <p> Push code → CI Build → Auto Deploy → Live! </p>
-        </div>
-    </div>
+            <p>Push code → Lighthouse Audit → Auto Deploy → Live!</p>
+        </footer>
+    </main>
 
     <script>
         document.getElementById('date').textContent = new Date().toLocaleDateString('vi-VN');
