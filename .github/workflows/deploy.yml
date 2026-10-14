@@ -5,7 +5,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Cấp quyền ghi cho GITHUB_TOKEN để tạo và đẩy code lên nhánh gh-pages không bị lỗi 403
 permissions:
   contents: write
 
@@ -14,24 +13,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout code từ GitHub
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Validate HTML
+      # Step 2: Kiểm tra đầy đủ các trang HTML và ảnh avatar
+      - name: Validate HTML & Assets
         run: |
-          echo "Checking index.html exists..."
-          if [ -f "index.html" ]; then
-            echo "index.html found!"
-            echo "File size: $(wc -c < index.html) bytes"
-          else
-            echo " index.html NOT found!"
-            exit 1
-          fi
+          echo "Checking required files..."
+          for file in index.html about.html contact.html avatar.png; do
+            if [ -f "$file" ]; then
+              echo "✅ $file found! ($(wc -c < "$file") bytes)"
+            else
+              echo "❌ $file NOT found!"
+              exit 1
+            fi
+          done
 
+      # Step 3: Chạy Google Lighthouse CI để audit Performance, Accessibility, Best Practices, SEO
+      - name: Audit with Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: './lighthouserc.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      # Step 4: Deploy lên GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
           publish_branch: gh-pages
-          commit_message: "Auto-deploy from CI pipeline"
+          commit_message: "Auto-deploy multi-page portfolio with Lighthouse CI"

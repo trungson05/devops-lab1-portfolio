@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang thông tin liên hệ - DevOps Lab 1 Portfolio.">
+    <title>Liên hệ — DevOps Lab 1 Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 36px 48px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f0f2f5;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #5a67d8;
+            color: white;
+        }
+
+        h1 {
+            color: #4c51bf;
+            margin-bottom: 8px;
+            font-size: 28px;
+        }
+
+        .info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .info a {
+            color: #4c51bf;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <nav aria-label="Main Navigation">
+            <a href="index.html">Trang chủ</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="contact.html" class="active">Liên hệ</a>
+        </nav>
+
+        <h1>Thông tin Liên hệ</h1>
+
+        <div class="info">
+            <p><strong>GitHub:</strong> <a href="https://github.com/trungson05" target="_blank"
+                    rel="noopener noreferrer">github.com/trungson05</a></p>
+            <p><strong>Dự án Lab 1:</strong> <a href="https://github.com/trungson05/devops-lab1-portfolio"
+                    target="_blank" rel="noopener noreferrer">devops-lab1-portfolio</a></p>
+            <p><strong>Địa chỉ:</strong> Thái Nguyên, Việt Nam</p>
+        </div>
+
+        <footer class="footer">
+            <p>DevOps Lab 1 — Multi-page Portfolio</p>
+        </footer>
+    </main>
+</body>
+
+</html>
